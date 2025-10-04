@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import type { ILinkProps } from './types'
 
+const router = useRouter()
 const props = withDefaults(defineProps<ILinkProps>(), {
   variant: 'primary',
   size: 'md',
@@ -20,7 +21,7 @@ const props = withDefaults(defineProps<ILinkProps>(), {
         'is-active': isActive,
         'link--disabled': props.disabled,
       }"
-      @click.prevent="!props.disabled && $router.push(to)"
+      @click.prevent="!props.disabled && router.push(to)"
     >
       <span v-if="icon" class="link__icon">{{ icon }}</span>
       <slot>{{ text }}</slot>

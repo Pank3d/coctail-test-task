@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import type { ICocktailData } from "../api/types";
-import IngredientsList from "./IngredientsList.vue";
-import { LazyImage } from "@/shared";
+import { LazyImage } from '@/shared'
+import { CocktailCardProps } from '@/entities'
 
-interface CocktailCardProps {
-  cocktail: ICocktailData;
-}
+import IngredientsList from './IngredientsList.vue'
 
-defineProps<CocktailCardProps>();
+defineProps<CocktailCardProps>()
 </script>
 
 <template>
@@ -20,10 +17,7 @@ defineProps<CocktailCardProps>();
           <p class="cocktail-card__detail">{{ cocktail.strAlcoholic }}</p>
           <p class="cocktail-card__detail">{{ cocktail.strGlass }}</p>
         </div>
-        <div
-          v-if="cocktail.strInstructions"
-          class="cocktail-card__instructions"
-        >
+        <div v-if="cocktail.strInstructions" class="cocktail-card__instructions">
           <h3 class="cocktail-card__instructions-title">Instructions</h3>
           <p class="cocktail-card__instructions-text">
             {{ cocktail.strInstructions }}
@@ -39,7 +33,7 @@ defineProps<CocktailCardProps>();
 </template>
 
 <style scoped lang="scss">
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .cocktail-card {
   width: 100%;

@@ -1,4 +1,4 @@
-export interface ISideBarItem {
+export interface SideBarItemProps {
   path: string
   title: string
   icon?: string

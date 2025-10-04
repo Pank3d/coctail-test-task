@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { EmptyState } from "@/shared";
+import { EmptyState } from '@/shared'
+import { CocktailsNotFoundProps } from '@/entities'
 
-interface CocktailsNotFoundProps {
-  cocktailName: string;
-}
-
-defineProps<CocktailsNotFoundProps>();
+defineProps<CocktailsNotFoundProps>()
 </script>
 
 <template>
@@ -14,6 +11,3 @@ defineProps<CocktailsNotFoundProps>();
     :message="`No cocktail found with the name &quot;${cocktailName}&quot;`"
   />
 </template>
-
-<style scoped lang="scss">
-</style>

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { routesPath } from './routes'
 import { MainPage, NotFoundPage } from '@/pages'
 import { COCKTAILS_CONFIG, getDefaultCocktail } from '@/shared'
+
+import { routesPath } from './routes'
 
 const cocktailRoutes = COCKTAILS_CONFIG.map(cocktail => ({
   path: cocktail.path,

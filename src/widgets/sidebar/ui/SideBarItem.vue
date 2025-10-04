@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import { Link } from '@/shared'
-
-interface SideBarItemProps {
-  path: string
-  title: string
-  icon?: string
-}
+import { SideBarItemProps } from '@/widgets'
 
 defineProps<SideBarItemProps>()
 </script>

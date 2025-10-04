@@ -1,16 +1,10 @@
 <script setup lang="ts">
-interface DataLoaderProps {
-  isLoading: boolean;
-  isError: boolean;
-  loadingText?: string;
-  errorText?: string;
-  onRetry?: () => void;
-}
+import { DataLoaderProps } from './types'
 
 withDefaults(defineProps<DataLoaderProps>(), {
-  loadingText: "Loading...",
-  errorText: "Error loading data",
-});
+  loadingText: 'Loading...',
+  errorText: 'Error loading data',
+})
 </script>
 
 <template>
@@ -20,9 +14,7 @@ withDefaults(defineProps<DataLoaderProps>(), {
     </div>
     <div v-else-if="isError" class="data-loader__error">
       <p>{{ errorText }}</p>
-      <button v-if="onRetry" @click="onRetry" class="data-loader__retry-btn">
-        Retry
-      </button>
+      <button v-if="onRetry" class="data-loader__retry-btn" @click="onRetry">Retry</button>
     </div>
     <div v-else class="data-loader__content">
       <slot></slot>

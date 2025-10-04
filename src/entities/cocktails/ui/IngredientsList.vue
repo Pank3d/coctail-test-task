@@ -1,25 +1,17 @@
 <script setup lang="ts">
-import type { ICocktailData } from "../api/types";
-import { getIngredients } from "../lib";
+import { IngredientsListProps } from '@/entities'
+import { getIngredients } from '../lib'
 
-interface IngredientsListProps {
-  cocktail: ICocktailData;
-}
+const props = defineProps<IngredientsListProps>()
 
-const props = defineProps<IngredientsListProps>();
-
-const ingredients = getIngredients(props.cocktail);
+const ingredients = getIngredients(props.cocktail)
 </script>
 
 <template>
   <div class="ingredients-list">
     <h3 class="ingredients-list__title">Ingredients</h3>
     <ul class="ingredients-list__items">
-      <li
-        v-for="(item, index) in ingredients"
-        :key="index"
-        class="ingredients-list__item"
-      >
+      <li v-for="(item, index) in ingredients" :key="index" class="ingredients-list__item">
         <span class="ingredients-list__measure">{{ item.measure }}</span>
         <span class="ingredients-list__name">{{ item.name }}</span>
       </li>
@@ -28,7 +20,7 @@ const ingredients = getIngredients(props.cocktail);
 </template>
 
 <style scoped lang="scss">
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .ingredients-list {
   margin-top: var(--spacing-xl);

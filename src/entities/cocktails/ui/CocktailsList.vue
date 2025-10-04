@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import type { ICocktailData } from "../api/types";
-import CocktailCard from "./CocktailCard.vue";
+import { CocktailsListProps } from '@/entities'
+import CocktailCard from './CocktailCard.vue'
 
-interface CocktailsListProps {
-  cocktails: ICocktailData[];
-}
-
-defineProps<CocktailsListProps>();
+defineProps<CocktailsListProps>()
 </script>
 
 <template>
@@ -16,7 +12,7 @@ defineProps<CocktailsListProps>();
 </template>
 
 <style scoped lang="scss">
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .cocktails-list {
   @include flex-column(var(--spacing-md));

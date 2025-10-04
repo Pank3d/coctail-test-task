@@ -1,10 +1,4 @@
-export interface CocktailConfig {
-  id: string
-  name: string
-  title: string
-  icon: string
-  path: string
-}
+import { CocktailConfig } from '@/shared'
 
 export const COCKTAILS_CONFIG: CocktailConfig[] = [
   {

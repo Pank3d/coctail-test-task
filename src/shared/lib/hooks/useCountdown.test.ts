@@ -57,7 +57,7 @@ describe('useCountdown', () => {
     stop()
 
     vi.advanceTimersByTime(2000)
-    expect(countdown.value).toBe(4) // Should not change after stop
+    expect(countdown.value).toBe(4)
   })
 
   it('should reset countdown to initial value', () => {

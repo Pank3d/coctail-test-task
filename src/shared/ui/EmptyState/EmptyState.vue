@@ -1,10 +1,7 @@
 <script setup lang="ts">
-interface EmptyStateProps {
-  title: string;
-  message?: string;
-}
+import { EmptyStateProps } from './types'
 
-defineProps<EmptyStateProps>();
+defineProps<EmptyStateProps>()
 </script>
 
 <template>
