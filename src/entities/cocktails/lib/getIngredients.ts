@@ -5,20 +5,22 @@ export interface Ingredient {
   measure: string;
 }
 
+const MAX_INGREDIENTS = 15;
+
 export const getIngredients = (cocktail: ICocktailData): Ingredient[] => {
   const ingredients: Ingredient[] = [];
 
-  Array.from({ length: 15 }, (_, i) => i + 1).forEach((index) => {
-    const ingredient = cocktail[`strIngredient${index}` as keyof ICocktailData];
-    const measure = cocktail[`strMeasure${index}` as keyof ICocktailData];
+  for (let i = 1; i <= MAX_INGREDIENTS; i++) {
+    const ingredient = cocktail[`strIngredient${i}` as keyof ICocktailData];
+    const measure = cocktail[`strMeasure${i}` as keyof ICocktailData];
 
-    if (ingredient) {
+    if (ingredient && typeof ingredient === "string") {
       ingredients.push({
-        name: ingredient as string,
-        measure: (measure as string) || "",
+        name: ingredient,
+        measure: typeof measure === "string" ? measure.trim() : "",
       });
     }
-  });
+  }
 
   return ingredients;
 };

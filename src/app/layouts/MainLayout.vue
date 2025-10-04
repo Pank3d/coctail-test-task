@@ -15,6 +15,8 @@ const route = useRoute();
 </template>
 
 <style scoped>
+@import "@/app/styles/mixins.scss";
+
 .main-layout {
   display: flex;
   height: 100vh;
@@ -23,7 +25,7 @@ const route = useRoute();
 
 .main-layout__content {
   flex: 1;
-  padding: 2rem;
+  padding: var(--spacing-xl);
   overflow-y: auto;
 }
 </style>

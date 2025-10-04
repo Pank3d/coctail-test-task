@@ -28,42 +28,41 @@ const ingredients = getIngredients(props.cocktail);
 </template>
 
 <style scoped lang="scss">
+@import "@/app/styles/mixins.scss";
+
 .ingredients-list {
-  margin-top: 2rem;
+  margin-top: var(--spacing-xl);
 
   &__title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
   }
 
   &__items {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex-column(var(--spacing-sm));
   }
 
   &__item {
-    display: flex;
-    gap: 1rem;
-    padding: 0.75rem;
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
-    border-left: 3px solid #4f46e5;
+    @include flex-row(var(--spacing-md));
+    padding: var(--spacing-sm);
+    background-color: var(--color-bg-light);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-primary);
   }
 
   &__measure {
-    font-weight: 600;
-    color: #4f46e5;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
     min-width: 6rem;
   }
 
   &__name {
-    color: #475569;
+    color: var(--color-text-secondary);
   }
 }
 </style>

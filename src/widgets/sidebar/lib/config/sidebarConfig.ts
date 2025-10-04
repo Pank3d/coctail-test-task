@@ -3,7 +3,7 @@ import { routesPath } from "@/app/providers/router/routes";
 
 export const sideBarConfig: ISideBarItem[] = [
   {
-    path: routesPath.drinks.tabs.maragarita,
+    path: routesPath.drinks.tabs.margarita,
     title: "Margarita",
     icon: "🍹",
   },

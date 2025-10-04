@@ -16,9 +16,9 @@ defineProps<CocktailsListProps>();
 </template>
 
 <style scoped lang="scss">
+@import "@/app/styles/mixins.scss";
+
 .cocktails-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  @include flex-column(var(--spacing-md));
 }
 </style>

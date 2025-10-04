@@ -39,16 +39,17 @@ const props = defineProps<CocktailCardProps>();
 </template>
 
 <style scoped lang="scss">
+@import "@/app/styles/mixins.scss";
+
 .cocktail-card {
   width: 100%;
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-xl);
 
   &__content {
-    display: flex;
-    gap: 2rem;
+    @include flex-row(var(--spacing-xl));
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -60,41 +61,39 @@ const props = defineProps<CocktailCardProps>();
   }
 
   &__title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 1rem 0;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-md) 0;
   }
 
   &__details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    @include flex-column(var(--spacing-xs));
+    margin-bottom: var(--spacing-lg);
   }
 
   &__detail {
     margin: 0;
-    color: #64748b;
-    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
   }
 
   &__instructions {
-    margin-top: 1.5rem;
-    padding: 1.5rem;
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background-color: var(--color-bg-light);
+    border-radius: var(--radius-sm);
 
     &-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin: 0 0 1rem 0;
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
+      margin: 0 0 var(--spacing-md) 0;
     }
 
     &-text {
       margin: 0;
-      color: #475569;
+      color: var(--color-text-secondary);
       line-height: 1.6;
     }
   }

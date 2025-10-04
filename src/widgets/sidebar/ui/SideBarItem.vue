@@ -15,36 +15,37 @@ defineProps<SideBarItemProps>();
 </template>
 
 <style lang="scss" scoped>
+@import "@/app/styles/mixins.scss";
+
 .sidebar-item {
-  display: flex;
+  @include flex-row(var(--spacing-sm));
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.875rem 1rem;
+  padding: 0.875rem var(--spacing-md);
   text-decoration: none;
-  color: #64748b;
-  border-radius: 0.5rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
   transition: all 0.2s ease;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 
   &:hover {
-    background-color: #f1f5f9;
-    color: #334155;
+    background-color: var(--color-bg-lighter);
+    color: var(--color-text-secondary);
   }
 
   &.is-active {
     background-color: #e0e7ff;
-    color: #4f46e5;
-    font-weight: 600;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
   }
 
   &__icon {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
     line-height: 1;
   }
 
   &__title {
     font-size: 0.875rem;
-    color: #334155;
+    color: var(--color-text-secondary);
   }
 }
 </style>

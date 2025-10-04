@@ -5,10 +5,10 @@ import { MainPage, NotFoundPage } from "@/pages";
 const routes = [
   {
     path: routesPath.root,
-    redirect: routesPath.drinks.tabs.maragarita,
+    redirect: routesPath.drinks.tabs.margarita,
   },
   {
-    path: routesPath.drinks.tabs.maragarita,
+    path: routesPath.drinks.tabs.margarita,
     name: "margarita-drink",
     component: MainPage,
     meta: {

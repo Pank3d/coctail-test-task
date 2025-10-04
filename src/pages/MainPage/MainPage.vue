@@ -10,7 +10,7 @@ const route = useRoute();
 
 const cocktailName = computed(() => route.meta.cocktailName as string);
 
-const { data, isLoading, isError } = useCocktails(cocktailName.value);
+const { data, isLoading, isError } = useCocktails(cocktailName);
 const cocktailsData = computed(() => data.value?.drinks);
 </script>
 

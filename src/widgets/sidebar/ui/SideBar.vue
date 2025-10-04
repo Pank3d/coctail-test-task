@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import SideBarItem from "./SideBarItem.vue";
-import { sideBarConfig } from "../../sidebar";
+import { sideBarConfig } from "../lib/config/sidebarConfig";
 </script>
 
 <template>
@@ -21,32 +21,31 @@ import { sideBarConfig } from "../../sidebar";
 </template>
 
 <style lang="scss" scoped>
+@import "@/app/styles/mixins.scss";
+
 .sidebar {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   width: 16rem;
   min-height: 100vh;
-  background-color: #ffffff;
-  border-right: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
 
   &__header {
-    padding: 1.5rem 1rem;
-    border-bottom: 1px solid #e2e8f0;
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
   }
 
   &__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1e293b;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
     margin: 0;
   }
 
   &__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
+    @include flex-column(var(--spacing-xs));
+    padding: var(--spacing-md);
   }
 }
 </style>

@@ -1,31 +1,19 @@
 <script setup lang="ts">
+import { EmptyState } from "@/shared";
+
 interface CocktailsNotFoundProps {
   cocktailName: string;
 }
 
-defineProps<CocktailsNotFoundProps>();
+const props = defineProps<CocktailsNotFoundProps>();
 </script>
 
 <template>
-  <div class="cocktails-not-found">
-    <h2>Cocktail not found</h2>
-    <p>No cocktail found with the name "{{ cocktailName }}"</p>
-  </div>
+  <EmptyState
+    title="Cocktail not found"
+    :message="`No cocktail found with the name &quot;${cocktailName}&quot;`"
+  />
 </template>
 
 <style scoped lang="scss">
-.cocktails-not-found {
-  text-align: center;
-  padding: 3rem;
-  color: #64748b;
-
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-}
 </style>

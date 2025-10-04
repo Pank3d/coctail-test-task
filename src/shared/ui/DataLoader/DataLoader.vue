@@ -31,16 +31,16 @@ withDefaults(defineProps<DataLoaderProps>(), {
   &__loading,
   &__error {
     text-align: center;
-    padding: 3rem;
-    color: #64748b;
+    padding: var(--spacing-2xl);
+    color: var(--color-text-muted);
 
     p {
-      font-size: 1.125rem;
+      font-size: var(--font-size-md);
     }
   }
 
   &__error {
-    color: #ef4444;
+    color: var(--color-error);
   }
 }
 </style>
