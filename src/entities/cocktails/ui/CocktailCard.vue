@@ -20,9 +20,14 @@ const props = defineProps<CocktailCardProps>();
           <p class="cocktail-card__detail">{{ cocktail.strAlcoholic }}</p>
           <p class="cocktail-card__detail">{{ cocktail.strGlass }}</p>
         </div>
-        <div v-if="cocktail.strInstructions" class="cocktail-card__instructions">
+        <div
+          v-if="cocktail.strInstructions"
+          class="cocktail-card__instructions"
+        >
           <h3 class="cocktail-card__instructions-title">Instructions</h3>
-          <p class="cocktail-card__instructions-text">{{ cocktail.strInstructions }}</p>
+          <p class="cocktail-card__instructions-text">
+            {{ cocktail.strInstructions }}
+          </p>
         </div>
         <IngredientsList :cocktail="cocktail" />
       </div>
@@ -44,7 +49,6 @@ const props = defineProps<CocktailCardProps>();
   &__content {
     display: flex;
     gap: 2rem;
-    flex-direction: row-reverse;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -106,6 +110,5 @@ const props = defineProps<CocktailCardProps>();
       height: 300px;
     }
   }
-
 }
 </style>

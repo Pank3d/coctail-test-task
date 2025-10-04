@@ -14,10 +14,9 @@ const props = withDefaults(defineProps<LazyImageProps>(), {
 const imageLoaded = ref(false);
 const imageError = ref(false);
 
-// Добавляем /preview к URL для получения уменьшенной версии
 const optimizedSrc = computed(() => {
-  if (props.preview && props.src.includes('thecocktaildb.com')) {
-    return props.src.replace('/media/drink/', '/media/drink/preview/');
+  if (props.preview && props.src.includes("thecocktaildb.com")) {
+    return props.src.replace("/media/drink/", "/media/drink/preview/");
   }
   return props.src;
 });
@@ -44,9 +43,7 @@ const onImageError = () => {
       @load="onImageLoad"
       @error="onImageError"
     />
-    <div v-if="imageError" class="lazy-image__error">
-      Image not available
-    </div>
+    <div v-if="imageError" class="lazy-image__error">Image not available</div>
   </div>
 </template>
 
