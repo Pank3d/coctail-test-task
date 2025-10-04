@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { routesPath } from "./routes";
-import { MainPage } from "@/pages";
+import { MainPage, NotFoundPage } from "@/pages";
 
 const routes = [
+  {
+    path: routesPath.root,
+    redirect: routesPath.drinks.tabs.maragarita,
+  },
   {
     path: routesPath.drinks.tabs.maragarita,
     name: "margarita-drink",
@@ -38,6 +42,11 @@ const routes = [
       title: "Kir",
       cocktailName: "kir",
     },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFoundPage,
   },
 ];
 
