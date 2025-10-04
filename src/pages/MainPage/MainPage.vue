@@ -7,16 +7,15 @@ import CocktailsList from "@/entities/cocktails/ui/CocktailsList.vue";
 import CocktailsNotFound from "@/entities/cocktails/ui/CocktailsNotFound.vue";
 
 const route = useRoute();
-
 const cocktailName = computed(() => route.meta.cocktailName as string);
-
-const { data, isLoading, isError } = useCocktails(cocktailName);
+const { data, isLoading, isError, refetch } = useCocktails(cocktailName);
 const cocktailsData = computed(() => data.value?.drinks);
+
 </script>
 
 <template>
   <div class="main-page">
-    <DataLoader :is-loading="isLoading" :is-error="isError">
+    <DataLoader :is-loading="isLoading" :is-error="isError" :on-retry="refetch">
       <CocktailsList v-if="cocktailsData" :cocktails="cocktailsData" />
       <CocktailsNotFound v-else :cocktail-name="cocktailName" />
     </DataLoader>

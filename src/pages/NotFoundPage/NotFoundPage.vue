@@ -4,8 +4,12 @@ import { routesPath } from "@/app/providers/router/routes";
 import { useCountdown } from "@/shared";
 
 const router = useRouter();
-const { countdown } = useCountdown(3, () => {
-  router.push(routesPath.drinks.tabs.margarita);
+const { countdown } = useCountdown(3, async () => {
+  try {
+    await router.push(routesPath.drinks.tabs.margarita);
+  } catch (error) {
+    console.error("Failed to redirect from 404 page:", error);
+  }
 });
 </script>
 
@@ -18,7 +22,8 @@ const { countdown } = useCountdown(3, () => {
         The page you are looking for does not exist.
       </p>
       <p class="not-found__redirect">
-        Redirecting to home in <span class="not-found__countdown">{{ countdown }}</span> seconds...
+        Redirecting to home in
+        <span class="not-found__countdown">{{ countdown }}</span> seconds...
       </p>
     </div>
   </div>

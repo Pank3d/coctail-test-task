@@ -7,7 +7,7 @@ export const useCocktails = (cocktailName: MaybeRef<string>) => {
   const name = computed(() => unref(cocktailName));
 
   return useQuery<CocktailResponse>({
-    queryKey: ["cocktails", name],
+    queryKey: ["cocktails", name.value],
     queryFn: () => cocktailsApi.getCocktails(name.value),
     enabled: computed(() => !!name.value),
   });

@@ -56,4 +56,20 @@ const router = createRouter({
   routes,
 });
 
+// Обработка ошибок навигации
+router.onError((error) => {
+  console.error("Router navigation error:", error);
+});
+
+// Глобальный navigation guard для проверки
+router.beforeEach((to, from, next) => {
+  try {
+    // Валидация или другая логика
+    next();
+  } catch (error) {
+    console.error("Navigation guard error:", error);
+    next(false);
+  }
+});
+
 export default router;

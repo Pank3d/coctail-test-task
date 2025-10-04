@@ -5,7 +5,7 @@ interface CocktailsNotFoundProps {
   cocktailName: string;
 }
 
-const props = defineProps<CocktailsNotFoundProps>();
+defineProps<CocktailsNotFoundProps>();
 </script>
 
 <template>

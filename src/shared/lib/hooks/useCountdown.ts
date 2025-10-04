@@ -9,7 +9,11 @@ export const useCountdown = (initialSeconds: number, onComplete?: () => void) =>
       countdown.value--;
       if (countdown.value <= 0) {
         stop();
-        onComplete?.();
+        try {
+          onComplete?.();
+        } catch (error) {
+          console.error("Error in countdown callback:", error);
+        }
       }
     }, 1000);
   };

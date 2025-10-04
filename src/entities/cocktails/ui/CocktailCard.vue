@@ -7,7 +7,7 @@ interface CocktailCardProps {
   cocktail: ICocktailData;
 }
 
-const props = defineProps<CocktailCardProps>();
+defineProps<CocktailCardProps>();
 </script>
 
 <template>

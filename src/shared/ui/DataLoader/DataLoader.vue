@@ -4,6 +4,7 @@ interface DataLoaderProps {
   isError: boolean;
   loadingText?: string;
   errorText?: string;
+  onRetry?: () => void;
 }
 
 withDefaults(defineProps<DataLoaderProps>(), {
@@ -19,6 +20,9 @@ withDefaults(defineProps<DataLoaderProps>(), {
     </div>
     <div v-else-if="isError" class="data-loader__error">
       <p>{{ errorText }}</p>
+      <button v-if="onRetry" @click="onRetry" class="data-loader__retry-btn">
+        Retry
+      </button>
     </div>
     <div v-else class="data-loader__content">
       <slot></slot>
@@ -41,6 +45,27 @@ withDefaults(defineProps<DataLoaderProps>(), {
 
   &__error {
     color: var(--color-error);
+  }
+
+  &__retry-btn {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
 </style>
