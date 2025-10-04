@@ -24,6 +24,7 @@ export const useApiRequest = <T = any, D = any>(
 
     try {
       const result = await apiFn(dto);
+      console.log('API Response:', result);
 
       if (!abortController.signal.aborted) {
         data.value = result

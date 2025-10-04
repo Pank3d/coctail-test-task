@@ -6,22 +6,24 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="main-layout">
+  <main class="main-layout">
     <SideBar />
-    <main class="main-layout__content">
+    <section class="main-layout__content">
       <router-view :key="route.path" />
-    </main>
-  </div>
+    </section>
+  </main>
 </template>
 
 <style scoped>
 .main-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .main-layout__content {
   flex: 1;
   padding: 2rem;
+  overflow-y: auto;
 }
 </style>

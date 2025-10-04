@@ -3,7 +3,7 @@ import { computed, onMounted, onUnmounted, Ref } from "vue";
 
 interface ActionState {
   isLoading: Ref<boolean>;
-  isError: Ref<boolean>;
+  isError: Ref<string | null>;
   timestamp?: Ref<number | undefined>;
 }
 
@@ -72,11 +72,11 @@ onUnmounted(() => {
 });
 
 const isLoading = computed(() =>
-  actionsArray.value.some((action) => action.state.isLoading)
+  actionsArray.value.some((action) => action.state.isLoading && action.state.isLoading.value)
 );
 
 const isError = computed(() =>
-  actionsArray?.value.some((action) => !!action.state.isError)
+  actionsArray?.value.some((action) => action.state.isError && !!action.state.isError.value)
 );
 </script>
 
