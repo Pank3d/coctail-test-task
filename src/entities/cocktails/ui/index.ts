@@ -1,2 +1,4 @@
 export { default as CocktailCard } from './CocktailCard.vue'
 export { default as IngredientsList } from './IngredientsList.vue'
+export { default as CocktailsList } from './CocktailsList.vue'
+export { default as CocktailsNotFound } from './CocktailsNotFound.vue'

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { Link } from "@/shared/ui/link";
+import { Link } from '@/shared'
 
 interface SideBarItemProps {
-  path: string;
-  title: string;
-  icon?: string;
+  path: string
+  title: string
+  icon?: string
 }
 
-defineProps<SideBarItemProps>();
+defineProps<SideBarItemProps>()
 </script>
 
 <template>
@@ -15,7 +15,7 @@ defineProps<SideBarItemProps>();
 </template>
 
 <style lang="scss" scoped>
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .sidebar-item {
   @include flex-row(var(--spacing-sm));
@@ -26,6 +26,12 @@ defineProps<SideBarItemProps>();
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
   font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
 
   &:hover {
     background-color: var(--color-bg-lighter);

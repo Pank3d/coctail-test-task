@@ -1,0 +1,29 @@
+# Build outputs
+dist
+dist-ssr
+*.local
+
+# Dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+.DS_Store
+
+# Package manager
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Vite
+.vite

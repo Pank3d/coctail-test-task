@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { SideBar } from "@/widgets";
-import { useRoute } from "vue-router";
+import { useRoute, RouterView } from 'vue-router'
+import { SideBar } from '@/widgets'
 
-const route = useRoute();
+const route = useRoute()
 </script>
 
 <template>
@@ -15,17 +15,27 @@ const route = useRoute();
 </template>
 
 <style scoped>
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .main-layout {
   display: flex;
+  max-width: 1024px;
+  margin: 0 auto;
   height: 100vh;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .main-layout__content {
   flex: 1;
   padding: var(--spacing-xl);
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    padding: var(--spacing-md);
+  }
 }
 </style>

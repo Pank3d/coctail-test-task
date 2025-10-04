@@ -1,22 +1,19 @@
 <script lang="ts" setup>
-import type { ILinkProps } from "./types";
+import { RouterLink } from 'vue-router'
+import type { ILinkProps } from './types'
 
 const props = withDefaults(defineProps<ILinkProps>(), {
-  variant: "primary",
-  size: "md",
+  variant: 'primary',
+  size: 'md',
   disabled: false,
   underline: true,
-  activeClass: "link--active",
-  exactActiveClass: "link--exact-active",
-});
+  activeClass: 'link--active',
+  exactActiveClass: 'link--exact-active',
+})
 </script>
 
 <template>
-  <router-link
-    v-bind="props"
-    v-slot="{ isActive }"
-    custom
-  >
+  <router-link v-slot="{ isActive }" v-bind="props" custom>
     <a
       :href="typeof to === 'string' ? to : undefined"
       :class="{
@@ -32,11 +29,6 @@ const props = withDefaults(defineProps<ILinkProps>(), {
 </template>
 
 <style lang="scss" scoped>
-.is-active {
-  color: red;
-  font-weight: bold;
-}
-
 .link--disabled {
   opacity: 0.5;
   pointer-events: none;

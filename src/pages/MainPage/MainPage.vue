@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-import { useCocktails } from "@/entities";
-import { DataLoader } from "@/shared";
-import CocktailsList from "@/entities/cocktails/ui/CocktailsList.vue";
-import CocktailsNotFound from "@/entities/cocktails/ui/CocktailsNotFound.vue";
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCocktails, CocktailsList, CocktailsNotFound } from '@/entities'
+import { DataLoader } from '@/shared'
 
-const route = useRoute();
-const cocktailName = computed(() => route.meta.cocktailName as string);
-const { data, isLoading, isError, refetch } = useCocktails(cocktailName);
-const cocktailsData = computed(() => data.value?.drinks);
-
+const route = useRoute()
+const cocktailName = computed(() => route.meta.cocktailName as string)
+const { data, isLoading, isError, refetch } = useCocktails(cocktailName)
+const cocktailsData = computed(() => data.value?.drinks)
 </script>
 
 <template>

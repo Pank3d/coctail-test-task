@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import SideBarItem from "./SideBarItem.vue";
-import { sideBarConfig } from "../lib/config/sidebarConfig";
+import SideBarItem from './SideBarItem.vue'
+import { sideBarConfig } from '../lib/config/sidebarConfig'
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import { sideBarConfig } from "../lib/config/sidebarConfig";
 </template>
 
 <style lang="scss" scoped>
-@import "@/app/styles/mixins.scss";
+@import '@/app/styles/mixins.scss';
 
 .sidebar {
   @include flex-column;
@@ -31,9 +31,23 @@ import { sideBarConfig } from "../lib/config/sidebarConfig";
   border-right: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
 
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
   &__header {
     padding: var(--spacing-lg) var(--spacing-md);
     border-bottom: 1px solid var(--color-border);
+
+    @media (max-width: 768px) {
+      padding: var(--spacing-md);
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+    }
   }
 
   &__title {
@@ -41,11 +55,22 @@ import { sideBarConfig } from "../lib/config/sidebarConfig";
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-lg);
+    }
   }
 
   &__nav {
     @include flex-column(var(--spacing-xs));
     padding: var(--spacing-md);
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-md);
+      overflow-x: auto;
+    }
   }
 }
 </style>
