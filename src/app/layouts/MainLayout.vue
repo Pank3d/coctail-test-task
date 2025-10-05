@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import { useRoute, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { SideBar } from '@/widgets'
-
-const route = useRoute()
 </script>
 
 <template>
   <main class="main-layout">
     <SideBar />
     <section class="main-layout__content">
-      <router-view :key="route.path" />
+      <router-view />
     </section>
   </main>
 </template>
 
-<style scoped>
-@import '@/app/styles/mixins.scss';
+<style lang="scss" scoped>
+@use '@/shared/styles' as *;
 
 .main-layout {
   display: flex;
@@ -24,18 +22,18 @@ const route = useRoute()
   height: 100vh;
   overflow: hidden;
 
-  @media (max-width: 768px) {
+  @include mobile {
     flex-direction: column;
   }
 }
 
 .main-layout__content {
   flex: 1;
-  padding: var(--spacing-xl);
+  padding: $spacing-xl;
   overflow-y: auto;
 
-  @media (max-width: 768px) {
-    padding: var(--spacing-md);
+  @include mobile {
+    padding: $spacing-md;
   }
 }
 </style>

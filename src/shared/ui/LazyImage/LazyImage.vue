@@ -21,6 +21,8 @@ const optimizedSrc = computed(() => {
 </template>
 
 <style scoped lang="scss">
+@use '@/shared/styles' as *;
+
 .lazy-image {
   width: 100%;
   height: 100%;
@@ -30,7 +32,7 @@ const optimizedSrc = computed(() => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-md);
+    border-radius: $radius-md;
   }
 }
 </style>

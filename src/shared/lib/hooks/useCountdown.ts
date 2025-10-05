@@ -1,47 +1,48 @@
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from 'vue'
 
+// так как запрещено использовать boilerPlates, я решил написать сам, но в продакшене я бы использовал vueUse
 export const useCountdown = (initialSeconds: number, onComplete?: () => void) => {
-  const countdown = ref(initialSeconds);
-  let interval: ReturnType<typeof setInterval> | null = null;
+  const countdown = ref(initialSeconds)
+  let interval: ReturnType<typeof setInterval> | null = null
 
   const start = () => {
     interval = setInterval(() => {
-      countdown.value--;
+      countdown.value--
       if (countdown.value <= 0) {
-        stop();
+        stop()
         try {
-          onComplete?.();
-        } catch (error) {
-          console.error("Error in countdown callback:", error);
+          onComplete?.()
+        } catch {
+          throw new Error()
         }
       }
-    }, 1000);
-  };
+    }, 1000)
+  }
 
   const stop = () => {
     if (interval) {
-      clearInterval(interval);
-      interval = null;
+      clearInterval(interval)
+      interval = null
     }
-  };
+  }
 
   const reset = () => {
-    stop();
-    countdown.value = initialSeconds;
-  };
+    stop()
+    countdown.value = initialSeconds
+  }
 
   onMounted(() => {
-    start();
-  });
+    start()
+  })
 
   onUnmounted(() => {
-    stop();
-  });
+    stop()
+  })
 
   return {
     countdown,
     start,
     stop,
     reset,
-  };
-};
+  }
+}

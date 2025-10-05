@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { MainPage, NotFoundPage } from '@/pages'
-import { COCKTAILS_CONFIG, getDefaultCocktail } from '@/shared'
+import { COCKTAILS_CONFIG, getDefaultCocktail } from '@/widgets/sidebar/model/config'
 
 import { routesPath } from './routes'
 
@@ -32,15 +32,14 @@ const router = createRouter({
   routes,
 })
 
-router.onError(error => {
-  console.error('Router navigation error:', error)
+router.onError(() => {
+  // тут ловим ошибки роутеров
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((_to, _from, next) => {
   try {
     next()
-  } catch (error) {
-    console.error('Navigation guard error:', error)
+  } catch {
     next(false)
   }
 })

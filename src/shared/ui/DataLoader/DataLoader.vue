@@ -23,36 +23,38 @@ withDefaults(defineProps<DataLoaderProps>(), {
 </template>
 
 <style scoped lang="scss">
+@use '@/shared/styles' as *;
+
 .data-loader {
   &__loading,
   &__error {
     text-align: center;
-    padding: var(--spacing-2xl);
-    color: var(--color-text-muted);
+    padding: $spacing-2xl;
+    color: $color-text-muted;
 
     p {
-      font-size: var(--font-size-md);
+      @include font-md;
     }
   }
 
   &__error {
-    color: var(--color-error);
+    color: $color-error;
   }
 
   &__retry-btn {
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    @include font-sm;
+    margin-top: $spacing-md;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-primary;
+    color: $color-white;
     border: none;
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
+    border-radius: $radius-sm;
+    font-weight: $font-weight-medium;
     cursor: pointer;
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--color-primary-dark);
+      background-color: $color-primary-dark;
     }
 
     &:active {

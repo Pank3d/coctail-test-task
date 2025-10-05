@@ -2,6 +2,10 @@ export interface CocktailConfig {
   id: string
   name: string
   title: string
-  icon: string
   path: string
+}
+
+export interface ISideBarItem {
+  path: string
+  title: string
 }

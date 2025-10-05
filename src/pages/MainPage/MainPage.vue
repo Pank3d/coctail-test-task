@@ -6,8 +6,9 @@ import { DataLoader } from '@/shared'
 
 const route = useRoute()
 const cocktailName = computed(() => route.meta.cocktailName as string)
-const { data, isLoading, isError, refetch } = useCocktails(cocktailName)
+const { data, isLoading, error, refetch } = useCocktails(cocktailName)
 const cocktailsData = computed(() => data.value?.drinks)
+const isError = computed(() => !!error.value)
 </script>
 
 <template>

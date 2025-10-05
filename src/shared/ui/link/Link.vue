@@ -23,7 +23,6 @@ const props = withDefaults(defineProps<ILinkProps>(), {
       }"
       @click.prevent="!props.disabled && router.push(to)"
     >
-      <span v-if="icon" class="link__icon">{{ icon }}</span>
       <slot>{{ text }}</slot>
     </a>
   </router-link>

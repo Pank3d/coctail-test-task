@@ -33,19 +33,19 @@ defineProps<CocktailCardProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/app/styles/mixins.scss';
+@use '@/shared/styles' as *;
 
 .cocktail-card {
   width: 100%;
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  padding: var(--spacing-xl);
+  background: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-xl;
 
   &__content {
-    @include flex-row(var(--spacing-xl));
+    @include flex-row($spacing-xl);
 
-    @media (max-width: 768px) {
+    @include mobile {
       flex-direction: column;
     }
   }
@@ -55,39 +55,38 @@ defineProps<CocktailCardProps>()
   }
 
   &__title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
-    margin: 0 0 var(--spacing-md) 0;
+    @include font-2xl;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-md 0;
   }
 
   &__details {
-    @include flex-column(var(--spacing-xs));
-    margin-bottom: var(--spacing-lg);
+    @include flex-column($spacing-xs);
+    margin-bottom: $spacing-lg;
   }
 
   &__detail {
+    @include font-sm;
     margin: 0;
-    color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    color: $color-text-muted;
   }
 
   &__instructions {
-    margin-top: var(--spacing-lg);
-    padding: var(--spacing-lg);
-    background-color: var(--color-bg-light);
-    border-radius: var(--radius-sm);
+    margin-top: $spacing-lg;
+    padding: $spacing-lg;
+    background-color: $color-bg-light;
+    border-radius: $radius-sm;
 
     &-title {
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-text-primary);
-      margin: 0 0 var(--spacing-md) 0;
+      @include font-lg;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-md 0;
     }
 
     &-text {
+      @include font-base;
       margin: 0;
-      color: var(--color-text-secondary);
+      color: $color-text-secondary;
       line-height: 1.6;
     }
   }
@@ -98,7 +97,7 @@ defineProps<CocktailCardProps>()
     height: 400px;
     position: relative;
 
-    @media (max-width: 768px) {
+    @include mobile {
       width: 100%;
       height: 300px;
     }

@@ -12,9 +12,9 @@ defineProps<CocktailsListProps>()
 </template>
 
 <style scoped lang="scss">
-@import '@/app/styles/mixins.scss';
+@use '@/shared/styles' as *;
 
 .cocktails-list {
-  @include flex-column(var(--spacing-md));
+  @include flex-column($spacing-md);
 }
 </style>

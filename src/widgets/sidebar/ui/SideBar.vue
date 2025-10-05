@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import SideBarItem from './SideBarItem.vue'
-import { sideBarConfig } from '../lib/config/sidebarConfig'
+import { sideBarConfig } from '../model/config'
 </script>
 
 <template>
@@ -14,61 +14,59 @@ import { sideBarConfig } from '../lib/config/sidebarConfig'
         :key="item.path"
         :path="item.path"
         :title="item.title"
-        :icon="item.icon"
       />
     </nav>
   </aside>
 </template>
 
 <style lang="scss" scoped>
-@import '@/app/styles/mixins.scss';
+@use '@/shared/styles' as *;
 
 .sidebar {
   @include flex-column;
   width: 16rem;
   min-height: 100vh;
-  background-color: var(--color-white);
-  border-right: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
+  background-color: $color-white;
+  border-right: 1px solid $color-border;
+  box-shadow: $shadow-md;
 
-  @media (max-width: 768px) {
+  @include mobile {
     width: 100%;
     min-height: auto;
     flex-direction: row;
     border-right: none;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid $color-border;
   }
 
   &__header {
-    padding: var(--spacing-lg) var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
+    padding: $spacing-lg $spacing-md;
+    border-bottom: 1px solid $color-border;
 
-    @media (max-width: 768px) {
-      padding: var(--spacing-md);
+    @include mobile {
+      padding: $spacing-md;
       border-bottom: none;
-      border-right: 1px solid var(--color-border);
+      border-right: 1px solid $color-border;
     }
   }
 
   &__title {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
+    @include font-xl;
+    color: $color-text-primary;
     margin: 0;
 
-    @media (max-width: 768px) {
-      font-size: var(--font-size-lg);
+    @include mobile {
+      @include font-lg;
     }
   }
 
   &__nav {
-    @include flex-column(var(--spacing-xs));
-    padding: var(--spacing-md);
+    @include flex-column($spacing-xs);
+    padding: $spacing-md;
 
-    @media (max-width: 768px) {
+    @include mobile {
       flex-direction: row;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-md);
+      gap: $spacing-xs;
+      padding: $spacing-md;
       overflow-x: auto;
     }
   }

@@ -13,20 +13,22 @@ defineProps<EmptyStateProps>()
 </template>
 
 <style scoped lang="scss">
+@use '@/shared/styles' as *;
+
 .empty-state {
   text-align: center;
-  padding: var(--spacing-2xl);
-  color: var(--color-text-muted);
+  padding: $spacing-2xl;
+  color: $color-text-muted;
 
   &__title {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-xs);
-    color: var(--color-text-primary);
+    @include font-xl;
+    margin-bottom: $spacing-xs;
+    color: $color-text-primary;
   }
 
   &__message {
-    font-size: var(--font-size-base);
-    color: var(--color-text-muted);
+    @include font-base;
+    color: $color-text-muted;
   }
 }
 </style>

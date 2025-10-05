@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { useCountdown, getDefaultCocktail } from '@/shared'
+import { useCountdown } from '@/shared'
+import { getDefaultCocktail } from '@/widgets/sidebar/model/config'
 
 const router = useRouter()
 const { countdown } = useCountdown(3, async () => {
   try {
     await router.push(getDefaultCocktail().path)
-  } catch (error) {
-    console.error('Failed to redirect from 404 page:', error)
+  } catch {
+    throw new Error()
   }
 })
 </script>
@@ -27,12 +28,12 @@ const { countdown } = useCountdown(3, async () => {
 </template>
 
 <style scoped lang="scss">
-@import '@/app/styles/mixins.scss';
+@use '@/shared/styles' as *;
 
 .not-found {
   @include flex-center;
   min-height: 100vh;
-  padding: var(--spacing-xl);
+  padding: $spacing-xl;
 
   &__content {
     text-align: center;
@@ -41,33 +42,33 @@ const { countdown } = useCountdown(3, async () => {
 
   &__title {
     font-size: 8rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
+    font-weight: $font-weight-bold;
+    color: $color-primary;
     margin: 0;
     line-height: 1;
   }
 
   &__subtitle {
     font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
-    margin: var(--spacing-md) 0;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    margin: $spacing-md 0;
   }
 
   &__message {
     font-size: var(--font-size-md);
-    color: var(--color-text-muted);
-    margin: var(--spacing-md) 0 var(--spacing-xl);
+    color: $color-text-muted;
+    margin: $spacing-md 0 $spacing-xl;
   }
 
   &__redirect {
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
+    color: $color-text-secondary;
   }
 
   &__countdown {
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
+    font-weight: $font-weight-bold;
+    color: $color-primary;
   }
 }
 </style>
